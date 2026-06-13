@@ -69,8 +69,9 @@ function About({ personal }) {
         {/* Audio de autopresentación */}
         <div className="media-block">
           <h3 className="media-label">
-            <span className="media-label-prefix">// </span>
+            <span className="media-label-prefix"> {"<"} </span>
             Autopresentación
+            <span className="media-label-prefix"> {"/>"} </span>
           </h3>
           <audio
             controls
@@ -89,8 +90,9 @@ function About({ personal }) {
         {/* Video de introducción */}
         <div className="media-block">
           <h3 className="media-label">
-            <span className="media-label-prefix">// </span>
+            <span className="media-label-prefix"> {"<"} </span>
             Video de introducción
+            <span className="media-label-prefix"> {"/>"} </span>
           </h3>
           <video
             controls
@@ -143,7 +145,7 @@ function About({ personal }) {
                 cursor: 'pointer'
               }}
             >
-              esc // cerrar
+              Esc // Cerrar
             </button>
             <img 
               src={`${BASE}/assets/images/Perfil.jpg`} 
