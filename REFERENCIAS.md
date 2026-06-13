@@ -1,26 +1,74 @@
-# Referencias de Investigación y Aprendizaje
+# REFERENCIAS.md — IF7102 Multimedios · I Ciclo 2026
 
-Este documento detalla los recursos, tutoriales, documentación oficial y herramientas de asistencia técnica consultados de forma autónoma para el aprendizaje del framework React y el desarrollo del Portafolio Multimedia Personal.
+Documentación del proceso de aprendizaje autónomo para el Proyecto Personal.
+**Framework elegido: React.js (v18)**
 
-## 1. Documentación Oficial Consultada
-* **React Docs:** Revisión de la documentación oficial para comprender el ciclo de vida, la renderización de listas mediante métodos inmutables y la gestión del estado reactivo.
-* **MDN Web Docs:** Consulta de la API `fetch()` nativa de JavaScript para la carga dinámica de datos estructurados desde archivos locales.
+---
 
-## 2. Tutoriales y Cursos en Video
-* **Título:** REACT: Crea tu primera web DESDE CERO [para principiantes]
-  * **Autor:** MoureDev by Brais Moure
-  * **Enlace:** https://www.youtube.com/watch?v=pFyAu4R684s
-  * **Descripción:** Guía fundamental para comprender la sintaxis JSX, el flujo de trabajo con componentes reutilizables y la inicialización de entornos basados en React.
+## 1. Tutoriales y cursos consultados
 
-## 3. Uso de Herramientas de Inteligencia Artificial (IA)
-De acuerdo con los lineamientos del curso establecidos por la cátedra, se utilizó la asistencia técnica avanzada de IA (Gemini) como herramienta de co-pilotaje arquitectónico. Las interacciones se enfocaron en la toma de decisiones tecnológicas orientadas a la escalabilidad corporativa, la resolución de restricciones de empaquetamiento con Node Package Manager (npm), y el diseño de pipelines de automatización para despliegue continuo (CD).
+| # | Título | URL | Uso |
+|---|--------|-----|-----|
+| 1 | React Official Tutorial: Tic-Tac-Toe | https://react.dev/learn/tutorial-tic-tac-toe | Primer contacto con componentes, estado y props |
+| 2 | React Docs — Describing the UI | https://react.dev/learn/describing-the-ui | Entender JSX y cómo React renderiza el árbol |
+| 3 | React Docs — Adding Interactivity | https://react.dev/learn/adding-interactivity | useState y manejo de eventos |
+| 4 | React Docs — Managing State | https://react.dev/learn/managing-state | Patrones de estado entre componentes |
+| 5 | React Docs — Escape Hatches (useRef, useEffect) | https://react.dev/learn/escape-hatches | useRef para DOM y useEffect para efectos secundarios |
 
-### Interacciones y Prompts Clave Utilizados:
+---
 
-> **Prompt de Análisis Arquitectónico y Viabilidad Tecnológica:**
-> *"Actúa como un Arquitecto de Software y Consultor de Escalabilidad Empresarial. Analiza los requerimientos de la guía del Proyecto Personal de Multimedios para la Opción 1 (Portfolio Multimedia Personal). Recomienda un stack > tecnológico basado en un framework o librería SPA moderno que garantice eficiencia en el renderizado, mantenibilidad mediante desacoplamiento de componentes, y que posea una alta demanda en el mercado laboral corporativo. Diseña la hoja de ruta inicial para segmentar la interfaz en módulos independientes."*
-> **Solución brindada:** Evaluación técnica comparativa entre los ecosistemas de Angular y React. Planificación estructural basada en la separación de responsabilidades, descomponiendo la aplicación en cuatro componentes mínimos reutilizables  (`Header`, `About`, `Skills`, `Gallery`), y conceptualización de una arquitectura desacoplada donde la capa de presentación se alimenta dinámicamente mediante un almacén de datos estructurado en formato JSON.
+## 2. Documentación oficial consultada
 
->  **Prompt de Ingeniería de Entorno y Configuración de Pipeline de Despliegue (React + gh-pages):**
-  >  *"Deseo inicializar de manera limpia un entorno SPA utilizando la librería React. Provee la secuencia de comandos bajo Bash para estructurar el espacio de trabajo, inicializar el control de versiones con Git, e instalar las dependencias core del proyecto. Adicionalmente, detalla el procedimiento técnico para mitigar las restricciones de nombrado de paquetes según las especificaciones de la API de npm. Configura un pipeline automatizado de compilación y despliegue sobre la infraestructura de GitHub Pages empleando la suite 'gh-pages', integrando los scripts de automatización 'predeploy' y 'deploy' en el manifiesto de configuración del proyecto."*
-  >  **Solución brindada:** Guía de inicialización a través del cli de `create-react-app`, resolución de excepciones asociadas a restricciones de nomenclatura URL-friendly en la metadata del `package.json`, modelado del árbol físico de directorios para la inyección de componentes, inyección de la variable de entorno `homepage` para el mapeo de recursos estáticos en el servidor de producción, y reestructuración del ciclo de scripts de npm para enlazar el compilador estático (`build`) con el deployer automatizado de la rama de producción (`gh-pages`).
+| Recurso | URL | Para qué se consultó |
+|---------|-----|----------------------|
+| React Docs (react.dev) | https://react.dev | Referencia principal del framework |
+| MDN — Fetch API | https://developer.mozilla.org/es/docs/Web/API/Fetch_API | Sintaxis de fetch() y manejo de promesas |
+| MDN — IntersectionObserver API | https://developer.mozilla.org/es/docs/Web/API/Intersection_Observer_API | Animaciones activadas al hacer scroll |
+| MDN — HTMLMediaElement (audio/video) | https://developer.mozilla.org/es/docs/Web/HTML/Element/audio | Atributos controls, preload, source |
+| MDN — CSS Custom Properties | https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties | Variables CSS para el sistema de diseño |
+| Create React App Docs | https://create-react-app.dev/docs/getting-started | Configuración del proyecto y scripts |
+| Create React App — Deployment (GitHub Pages) | https://create-react-app.dev/docs/deployment/#github-pages | Configuración de gh-pages y PUBLIC_URL |
+| Google Fonts — Space Grotesk | https://fonts.google.com/specimen/Space+Grotesk | Tipografía display del proyecto |
+| Google Fonts — JetBrains Mono | https://fonts.google.com/specimen/JetBrains+Mono | Tipografía monoespaciada para chips y rol |
+
+---
+
+## 3. Recursos multimedia
+
+| Recurso | Tipo | Origen | Licencia |
+|---------|------|--------|----------|
+| `Perfil.jpg` | Fotografía de perfil | Producción propia | Propia — todos los derechos reservados |
+| `presentacion.mp3` | Audio de autopresentación | Grabación propia | Propia — todos los derechos reservados |
+| `introduccion.mp4` | Video de introducción | Producción propia | Propia — todos los derechos reservados |
+
+> **Nota:** Los tres recursos multimedia son de producción propia del estudiante, por lo que no requieren licencia externa.
+
+---
+
+## 4. Paquetes npm utilizados
+
+| Paquete | Versión | Propósito |
+|---------|---------|-----------|
+| `react` | ^18.3.1 | Librería principal de UI |
+| `react-dom` | ^18.3.1 | Renderizado en el DOM |
+| `react-scripts` | 5.0.1 | Entorno de desarrollo y build (CRA) |
+| `gh-pages` | ^6.x | Despliegue automatizado a GitHub Pages |
+
+> No se usaron librerías externas de UI (Bootstrap, Tailwind, MUI). Todos los estilos son CSS propio.
+
+---
+
+## 5. Uso de Inteligencia Artificial
+
+Durante la investigación autónoma y codificación del proyecto se consultaron herramientas de IA generativa (Claude de Anthropic y Gemini de Google) de acuerdo con los lineamientos:
+
+**Para qué se utilizó:**
+- Explorar la sintaxis de hooks de React (`useState`, `useEffect`, `useRef`) y entender su ciclo de vida
+- Interpretar errores del compilador y del navegador
+- Comprender cómo funciona `IntersectionObserver` para las animaciones de scroll
+- Entender por qué `process.env.PUBLIC_URL` es necesario para assets en GitHub Pages
+- Generar una base de código comentada que luego fue leída, comprendida y adaptada
+
+---
+
+*Kener Josué Sosa Rodríguez · IF7102 Multimedios · UCR Sede Guanacaste · I Ciclo 2026*
