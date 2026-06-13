@@ -1,0 +1,47 @@
+{
+  "personal": {
+    "name": "Kener Sosa",
+    "role": "Desarrollador Full Stack",
+    "bio": "Estudiante del Bachillerato en Informática Empresarial en la UCR Sede Guanacaste, con sólidos conocimientos en programación, bases de datos y redes. Apasionado por la tecnología, la innovación y el aprendizaje continuo. Busco oportunidades para aplicar mis habilidades en entornos profesionales, con enfoque en la eficiencia, el trabajo en equipo y la mejora constante."
+  },
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "React",
+    "C#",
+    ".NET",
+    "Java",
+    "JSP",
+    "SQL Server",
+    "MySQL",
+    "PostgreSQL",
+    "Git",
+    "GitHub",
+    "Azure",
+    "Linux"
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Sistema de Órdenes de Reparación",
+      "description": "Sistema web con arquitectura en capas (BL, DA, DTOs, UI). Incluye gestión de usuarios y roles, control de inventario, órdenes de trabajo e integración con Azure. DTOs y ViewModels para separar lógica de negocio de la UI.",
+      "tech": ["C#", ".NET", "SQL Server", "Azure", "GitLab"],
+      "url": "https://git.ucr.ac.cr/ELI.CHAVARRIA/proyectofinal-if-4101-ii_2025"
+    },
+    {
+      "id": 2,
+      "name": "GestorDeRestaurante",
+      "description": "Sistema de gestión integral para restaurantes. Incluye administración de mesas, pedidos en tiempo real, facturación y reportes de ventas diarias.",
+      "tech": ["C#", ".NET", "SQL Server"],
+      "url": "https://git.ucr.ac.cr/JUAN.JIMENEZCASTRILLO/gestorderestaurante"
+    },
+    {
+      "id": 3,
+      "name": "Guía Turística Multimedia de Costa Rica",
+      "description": "Aplicación web interactiva que permite explorar 18 destinos turísticos de Costa Rica distribuidos en 6 regiones, a través de un mapa cantonal navegable, contenido multimedia (galería de imágenes, audio guía y video por destino) y datos cargados dinámicamente desde archivos JSON. Construida íntegramente con Web Components nativos (Custom Elements, Shadow DOM, HTML Templates y ES Modules), sin frameworks ni librerías externas.",
+      "tech": ["HTML5", "CSS3", "JavaScript ES6+"],
+      "url": "https://github.com/JCarlosJimenezC/proyecto-guia-turistica"
+    }
+  ]
+}
