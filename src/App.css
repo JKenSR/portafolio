@@ -146,20 +146,25 @@ main {
   width: 100%;
 }
 
+.section + .section {
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* ── 5. Header ───────────────────────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   padding: 1rem 1.5rem;
-  transition: background var(--transition), border-color var(--transition), backdrop-filter var(--transition);
+  border-bottom: 1px solid transparent;
+  transition: background var(--transition), border-color var(--transition), border-bottom-color var(--transition), backdrop-filter var(--transition);
 }
 
 .site-header--scrolled {
   background: rgba(13, 17, 23, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom-color: var(--border-subtle);
 }
 
 .header-inner {
@@ -225,6 +230,19 @@ main {
 .about-section {
   padding-top: 6rem;
   padding-bottom: 5rem;
+  position: relative;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about-hero {
@@ -320,6 +338,26 @@ main {
   box-shadow: 0 0 0 6px var(--bg-surface), 0 0 0 7px var(--accent-blue);
 }
 
+.photo-zoom-hint {
+  display: block;
+  text-align: center;
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+  transition: color var(--transition);
+}
+
+.about-photo:hover .photo-zoom-hint {
+  color: var(--accent-blue);
+}
+
+.hint-prefix {
+  color: var(--accent-green);
+  margin-right: 0.3rem;
+}
+
 /* Bloque multimedia */
 .about-media {
   display: grid;
@@ -330,9 +368,42 @@ main {
 }
 
 .media-block {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: var(--radius-md);
+  background: rgba(22, 27, 34, 0.45);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Esquinas tipo terminal (top-left azul, bottom-right verde) */
+.media-block::before,
+.media-block::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: opacity var(--transition);
+}
+
+.media-block::before {
+  top: 6px;
+  left: 6px;
+  border-top: 2px solid var(--accent-blue);
+  border-left: 2px solid var(--accent-blue);
+}
+
+.media-block::after {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 2px solid var(--accent-green);
+  border-right: 2px solid var(--accent-green);
 }
 
 .media-label {
@@ -352,7 +423,36 @@ main {
   height: 40px;
   border-radius: var(--radius-sm);
   accent-color: var(--accent-blue);
-  background: var(--bg-surface);
+  background: var(--bg-card);
+  color-scheme: dark;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.audio-player:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.25), inset 0 0 8px rgba(88, 166, 255, 0.06);
+}
+
+.audio-subtitles {
+  min-height: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease;
+  line-height: 1.4;
+}
+
+.subtitle-placeholder {
+  display: inline;
 }
 
 .intro-video {
@@ -360,6 +460,13 @@ main {
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background: #000;
+  color-scheme: dark;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.intro-video:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 18px rgba(88, 166, 255, 0.2);
 }
 
 /* ── 7. Encabezados de sección (Skills / Gallery) ────────────── */
@@ -449,7 +556,22 @@ main {
   margin-right: 0.15rem;
 }
 
-/* ── 9. Gallery / Proyectos ──────────────────────────────────── */
+/* ── 9. Hover / focus-within en media-block ─────────────────── */
+.media-block:focus-within {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 24px rgba(88, 166, 255, 0.15), inset 0 0 20px rgba(88, 166, 255, 0.03);
+}
+
+.media-block:hover {
+  border-color: var(--border);
+}
+
+.media-block:hover::before,
+.media-block:hover::after {
+  opacity: 0.8;
+}
+
+/* ── 10. Gallery / Proyectos ──────────────────────────────────── */
 .gallery-section {
   padding-bottom: 6rem;
 }
@@ -488,8 +610,8 @@ main {
 }
 
 .card-inner:hover {
-  border-color: var(--accent-blue-dim);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(88, 166, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(88, 166, 255, 0.1), 0 0 0 1px rgba(88, 166, 255, 0.12);
   transform: translateY(-4px);
 }
 
@@ -644,8 +766,12 @@ main {
     padding: 3.5rem 1.25rem;
   }
 
-  .header-logo {
-    font-size: 1rem;
+  .header-nav {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
   }
 }
 
@@ -671,4 +797,146 @@ main {
   .role-cursor {
     animation: none;
   }
+}
+
+/* ── 14. Lightbox ────────────────────────────────────────────── */
+.image-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 14, 22, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -48px;
+  right: -8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.lightbox-close:hover {
+  background: rgba(248, 81, 73, 0.12);
+  color: #F85149;
+  border-color: #F85149;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+  animation: lightboxZoomIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes lightboxZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── 15. WebKit Media Controls Theming ────────────────────────── */
+/* Solo Chromium / Edge / Safari – los ignora Firefox y Brave limita algunos */
+
+/* Panel general transparente para heredar el fondo oscuro del elemento */
+.audio-player::-webkit-media-controls-panel,
+.intro-video::-webkit-media-controls-panel {
+  background: transparent;
+}
+
+/* Botón play/pausa con glow azul en hover */
+.audio-player::-webkit-media-controls-play-button,
+.intro-video::-webkit-media-controls-play-button {
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.audio-player::-webkit-media-controls-play-button:hover,
+.intro-video::-webkit-media-controls-play-button:hover {
+  filter: brightness(1.35) drop-shadow(0 0 6px var(--accent-blue));
+  transform: scale(1.1);
+}
+
+/* Barra de progreso */
+.audio-player::-webkit-media-controls-timeline,
+.intro-video::-webkit-media-controls-timeline {
+  background: var(--border);
+  border-radius: var(--radius-sm);
+  height: 4px;
+  margin: 0 8px;
+  padding: 0 1px;
+}
+
+/* Displays de tiempo con tipografía mono espaciada */
+.audio-player::-webkit-media-controls-current-time-display,
+.audio-player::-webkit-media-controls-time-remaining-display,
+.intro-video::-webkit-media-controls-current-time-display,
+.intro-video::-webkit-media-controls-time-remaining-display {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Control de volumen */
+.audio-player::-webkit-media-controls-volume-slider,
+.intro-video::-webkit-media-controls-volume-slider {
+  background: var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* Botón mute */
+.audio-player::-webkit-media-controls-mute-button,
+.intro-video::-webkit-media-controls-mute-button {
+  transition: filter 0.2s;
+}
+
+.audio-player::-webkit-media-controls-mute-button:hover,
+.intro-video::-webkit-media-controls-mute-button:hover {
+  filter: brightness(1.3);
+}
+
+/* Botón fullscreen (video) */
+.intro-video::-webkit-media-controls-fullscreen-button {
+  transition: filter 0.2s;
+}
+
+.intro-video::-webkit-media-controls-fullscreen-button:hover {
+  filter: brightness(1.3) drop-shadow(0 0 4px var(--accent-blue));
 }
