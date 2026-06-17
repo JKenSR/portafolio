@@ -1,14 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * Skills.jsx
+ * Renderiza lista de habilidades con animación escalonada.
+ * Cada chip aparece con retraso incremental de 70ms activado por
+ * IntersectionObserver al entrar la sección en el viewport.
  *
- * Renderiza la lista de habilidades recibida como prop (array de strings)
- * usando obligatoriamente el método .map().
- *
- * La animación de entrada es escalonada (staggered): cada chip aparece
- * con un retraso incremental de 70ms activado por IntersectionObserver
- * cuando la sección entra en el viewport. 
+ * @param {Array} skills - Array de strings con nombres de tecnologías
  */
 function Skills({ skills }) {
   const sectionRef = useRef(null);
@@ -21,7 +18,6 @@ function Skills({ skills }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Aplicar animación escalonada a cada chip
             const chips = entry.target.querySelectorAll('.skill-chip');
             chips.forEach((chip, index) => {
               setTimeout(() => {
@@ -53,7 +49,6 @@ function Skills({ skills }) {
         </p>
       </div>
 
-      {/* .map() obligatorio con key única por elemento */}
       <div className="skills-grid">
         {skills.map((skill) => (
           <span key={skill} className="skill-chip">

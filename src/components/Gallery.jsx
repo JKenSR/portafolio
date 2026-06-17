@@ -1,16 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * Gallery.jsx
+ * Renderiza tarjetas de proyectos con animación escalonada.
+ * Cada tarjeta se revela al entrar al viewport mediante IntersectionObserver.
  *
- * Renderiza los proyectos recibidos como prop (array de objetos)
- * usando obligatoriamente el método .map() con key única (project.id).
- *
- * Cada tarjeta se revela con animación escalonada al entrar
- * al viewport mediante IntersectionObserver.
- *
- * Estructura esperada de cada objeto project:
- * { id, name, description, tech: string[], url? }
+ * @param {Array} projects - Array de objetos project.
+ *   Cada project: { id, name, description, tech: string[], url? }
  */
 function Gallery({ projects }) {
   const sectionRef = useRef(null);
@@ -53,22 +48,18 @@ function Gallery({ projects }) {
         </p>
       </div>
 
-      {/* .map() obligatorio con key única (project.id) */}
       <div className="projects-grid">
         {projects.map((project) => (
           <article key={project.id} className="project-card">
             <div className="card-inner">
 
-              {/* Encabezado de la tarjeta */}
               <div className="card-header">
                 <span className="card-icon" aria-hidden="true">⬡</span>
                 <h3 className="card-title">{project.name}</h3>
               </div>
 
-              {/* Descripción del proyecto */}
               <p className="card-description">{project.description}</p>
 
-              {/* Stack tecnológico con .map() anidado */}
               {project.tech && project.tech.length > 0 && (
                 <ul className="card-tech" aria-label="Tecnologías usadas">
                   {project.tech.map((tech) => (
@@ -79,7 +70,6 @@ function Gallery({ projects }) {
                 </ul>
               )}
 
-              {/* Enlace al repositorio (opcional) */}
               {project.url && (
                 <a
                   href={project.url}

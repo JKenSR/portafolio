@@ -27,7 +27,6 @@ function Header({ name }) {
     <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
       <div className="header-inner">
 
-        {/* Logo / nombre en formato de etiqueta HTML */}
         <a
           href="#about"
           className="header-logo"
@@ -39,7 +38,6 @@ function Header({ name }) {
           <span className="logo-bracket">/&gt;</span>
         </a>
 
-        {/* Navegación principal */}
         <nav className="header-nav" aria-label="Navegación principal">
           {navLinks.map((link) => (
             <a
